@@ -1,0 +1,78 @@
+.accordion {
+}
+.accordion-item {
+	cursor: pointer;
+	border-bottom: 1px dotted color(light);
+	.title {
+		padding: $gap 0;
+		padding-right: $gap*2;
+		position: relative;
+		&:after {
+			position: absolute;
+			right: 0;
+			top: 50%;
+			margin-top: -5px;
+			font: normal normal normal 14px/1 FontAwesome;
+			content: "\f107";
+		}
+	}
+	.content {
+		max-height: 0;
+		overflow: hidden;
+		&:after {
+			content: '';
+			display: block;
+			height: $gap;
+		}
+		transition: max-height 0.4s ease;
+	}
+	&.active {
+		.title:after {
+			content: "\f106";
+		}
+		.content {
+			opacity: 1;
+			max-height: 200px;
+		}
+	}
+	&:last-child {
+		border-bottom: none;
+	}
+}
+.accordion.accordion-collection {
+	.accordion-item {
+		border: none;
+		.title {
+			padding-left: $gap;
+			border-bottom: 1px solid #d7d7d7;
+			&:after {
+				right: $gap;
+			}
+		}
+		.content:after {
+			display: none;
+		}
+		&.active {
+			.content {
+				max-height: 500px;
+			}
+		}
+	}
+}
+.accordion-faq .accordion-item {
+	.title {
+		padding: $gap 0;
+		padding-left: $gap*2;
+		&:after {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -5px;
+			font: normal normal normal 14px/1 FontAwesome;
+			content: "\f067";
+		}
+	}
+	&.active .title:after {
+		content: "\f068";
+	}
+}

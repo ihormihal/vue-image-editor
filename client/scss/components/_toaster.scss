@@ -1,0 +1,54 @@
+.v-toaster {
+  position: fixed;
+  top: $gap;
+  right: $gap;
+  z-index: 10000;
+  width: 300px;
+  // padding: 10px;
+  .v-toast {
+    margin-bottom: $gap/2;
+    transition: all .3s ease;
+    border-radius: 8px;
+    display: block;
+    padding: $gap;
+    background-color: color(dark);
+    color: #fff;
+    &.v-toast-enter, &.v-toast-leave-to {
+      transform: translate(100%);
+    }
+    &.v-toast-success {
+      background-color: $colorSuccess;
+    }
+    &.v-toast-warning {
+      background-color: $colorWarning;
+    }
+    &.v-toast-info {
+      background-color: $colorPrimary;
+    }
+    &.v-toast-error {
+      background-color: $colorDanger;
+    }
+    &.v-toast-primary {
+      background-color: $colorPrimary;
+    }
+    .v-toast-btn-clear {
+      border: 0;
+      color: #fff;
+      opacity: .45;
+      text-decoration: none;
+      float: right;
+      cursor: pointer;
+      &:hover {
+        opacity: .85
+      }
+      &::before {
+        content: "\2715"
+      }
+    }
+  }
+}
+@media (max-width: 300px) {
+  .v-toaster {
+    width: 100%;
+  }
+}

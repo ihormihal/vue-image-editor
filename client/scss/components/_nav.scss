@@ -1,0 +1,88 @@
+.nav {
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	li a {
+		display: block;
+		@include no-select();
+	}
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+.nav-inline li {
+	float: left;
+	a:not(.btn) {
+		padding: 0 8px;
+	}
+}
+.nav-col li {
+	a:not(.btn) {
+		padding: 8px 0;
+	}
+}
+
+@media screen and (max-width: $lg - 1px) {
+	.nav-col-md li {float: none;}
+}
+@media screen and (max-width: $md - 1px) {
+	.nav-col-md li {float: none;}
+}
+@media screen and (max-width: $sm - 1px) {
+	.nav-col-sm li {float: none;}
+}
+@media screen and (max-width: #{$land - 1}px) {
+	.nav-col-land li {float: none;}
+}
+@media screen and (max-width: #{$port - 1}px) {
+	.nav-col-port li {float: none;}
+}
+@media screen and (max-width: #{$xs - 1}px) {
+	.nav-col-xs li {float: none;}
+}
+
+
+/* CUSTOM STYLES */
+$asideNavColor: color(light);
+.aside-nav.nav-col {
+	li {
+		border-style: solid;
+		border-color: $asideNavColor;
+		border-width: 0 4px 0 0;
+		&:first-child a {
+			border-top: 1px solid $asideNavColor;
+		}
+		a {
+			font-size: 16px;
+			color: color(dark);
+			text-transform: uppercase;
+			padding: $gap 0;
+			border-bottom: 1px solid $asideNavColor;
+			transition: color 0.3s ease, background-color 0.3s ease, padding 0.3s ease;
+			&:hover {
+				padding-left: $gap;
+			}
+		}
+		&.active, &:hover {
+			border-color: $colorPrimaryLight;
+			a {
+				color: $colorPrimaryLight;
+			}
+		}
+	}
+
+	&.nav-right {
+		li {
+			border-width: 0 0 0 4px;
+			a {
+				padding-left: $gap;
+				&:hover {
+					padding-left: $gap*2;
+				}
+			}
+		}
+	}
+}

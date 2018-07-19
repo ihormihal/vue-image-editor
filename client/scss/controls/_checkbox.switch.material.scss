@@ -1,0 +1,70 @@
+/* TOOGLE SWITCH */
+.switch {
+	vertical-align: middle;
+	label {
+		input {display: none;}
+		cursor: pointer;
+		@include no-select();
+		.toggle {text-align: left;}
+		// Switch bg off and disabled
+		.toggle, input[disabled] + .toggle {
+			content: "";
+			display: inline-block;
+			width: 30px;
+			height: 12px;
+			margin-right: $gap;
+			vertical-align: middle;
+			background-color: color(grey);
+			border-radius: 15px;
+			transition:(background 0.3s ease);
+		}
+		// Handle off
+		.toggle:after {
+			content: "";
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			background-color: color(lighten);
+			position: relative;
+			left: -5px;
+			top: -4px;
+			border-radius: 20px;
+			box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);
+			transition:(left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease);
+		}
+		input {
+			// Handle disabled
+			&[disabled] { 
+				& + .toggle {
+					cursor: default;
+					cursor: not-allowed;
+				}
+				& + .toggle:after, &:checked + .toggle:after {
+					background-color: color(light);
+				}
+			}
+
+			& +.toggle:active:after, &[disabled] + .toggle:active:after {
+				box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
+			}
+
+			// Ripple off and disabled
+			&:checked + .toggle:after {
+				left: 15px;
+			}
+		}
+
+		// set bg when checked
+		input:checked {
+			+.toggle {
+				background-color: rgba($colorPrimary, 0.7); // Switch bg on
+			}
+			+ .toggle:after {
+				background-color: $colorPrimary; // Handle on
+			}
+			+ .toggle:active:after {
+				box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba($colorPrimary, 0.1);
+			}
+		}
+	}
+}

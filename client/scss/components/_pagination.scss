@@ -1,0 +1,22 @@
+.pagination {
+	list-style: none;
+	li {
+		a {
+			@include no-select();
+			display: block;
+			float: left;
+			width: 32px;
+			height: 32px;
+			line-height: 32px;
+			text-align: center;
+			color: color(grey);
+			cursor: pointer;
+			border: 1px solid transparent;
+			border-radius: 50px;
+		}
+		&.active a {
+			color: color(deep-orange);
+			border-color: color(deep-orange);
+		}
+	}
+}

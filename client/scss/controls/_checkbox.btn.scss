@@ -1,0 +1,22 @@
+/*** BTN CHECKBOX && RADIO ***/
+.btn-checkbox, .btn-radio {
+	display: inline-block;
+	vertical-align: middle;
+	label {
+		cursor: pointer;
+		input {display: none;}
+		margin: 0;
+		@include no-select();
+		span {
+			border: 1px solid $colorPrimary;
+			font-size: $textSM;
+			padding: 4px 12px;
+			border-radius: 20px;
+			color: $colorPrimary;
+		}
+		input:checked + span {
+			color: #fff;
+			background-color: $colorPrimary;
+		}
+	}
+}

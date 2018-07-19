@@ -1,0 +1,52 @@
+.fade {
+	opacity: 0;
+	transition: opacity 0.2s linear;
+	&.in {
+		opacity: 1;
+	}
+}
+
+.tab-content {
+	.tab {
+		display: none;
+		visibility: hidden;
+		&.active {
+			display: block;
+			visibility: visible;
+		}
+	}
+}
+.tab-control.nav {
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	//align-items: flex-end;
+	li {
+		display: block;
+		flex-grow: 1;
+		a {
+			text-align: center;
+			height: 100%;
+			padding: 16px 24px;
+			color: color(light);
+			border-width: 0 0 1px 0;
+			border-style: solid;
+			border-color: color(lighten);
+			transition: color 0.3s ease;
+		}
+		&:hover a {
+			color: color(light-grey);
+		}
+		&.active {
+			a {
+				color: color(dark);
+				border-color: color(grey);
+			}
+		}
+	}
+}

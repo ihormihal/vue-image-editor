@@ -1,0 +1,286 @@
+$btnBoxShadow: 0 3px 10px rgba(0,0,0,0.2);
+$btnBoxShadow_active: 0 5px 10px rgba(0,0,0,0.3);
+
+.btn-mt {
+	font-weight: 500;
+	text-transform: uppercase;
+	box-shadow: $btnBoxShadow;
+	will-change: box-shadow;
+	&:active, .active {
+		box-shadow: $btnBoxShadow_active;
+	}
+}
+
+.btn-tr {
+	background-color: transparent;
+	border: 1px solid color(black);
+	&:hover, &.active {
+		background-color: rgba(0,0,0,0.1);
+	}
+}
+.btn-flat {
+	font-weight: 500;
+	text-transform: uppercase;
+	background-color: transparent !important;
+	&:hover, &.active {
+		background-color: color(lighten) !important;;
+	}
+	&:active {
+		background-color: color(light) !important;;
+	}
+}
+
+.btn-fl {
+	border: none;
+	overflow: hidden;
+	display: inline-block;
+	line-height: 56px;
+	text-align: center;
+	height: 56px;
+	width: 56px;
+	padding: 0 !important;
+	top: 2px;
+	border-radius: 50%;
+	box-shadow: $btnBoxShadow;
+	transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+	@include no-select();
+	will-change: box-shadow;
+	&:active, .active {
+		box-shadow: $btnBoxShadow_active;
+	}
+	i {
+		margin: 0;
+		position: static;
+		font-size: 24px;
+		vertical-align: middle;
+	}
+}
+
+
+//COLORS
+.btn {
+	//for ripple
+	.ink {
+		background-color: #fff;
+	}
+}
+.btn-white {
+	&.btn-tr {
+		color: color(white);
+		border-color: color(white);
+		background-color: transparent;
+		&:hover, &.active {
+			color: color(black);
+			background-color: color(white);
+		}
+	}
+	&.btn-flat {
+		color: color(white);
+	}
+}
+.btn-grey {
+	&.btn-tr {
+		color: color(grey);
+		border-color: color(grey);
+		background-color: transparent;
+		&:hover, &.active {
+			color: color(white);
+			background-color: color(grey);
+		}
+	}
+	&.btn-flat {
+		color: color(grey);
+	}
+}
+.btn-black {
+	&.btn-tr {
+		color: color(black);
+		border-color: color(black);
+		background-color: transparent;
+		&:hover, &.active {
+			color: color(white);
+			background-color: color(black);
+		}
+	}
+	&.btn-flat {
+		color: color(black);
+	}
+}
+.btn-primary {
+	&.btn-tr {
+		color: $colorPrimaryDark;
+		border-color: $colorPrimaryDark;
+		background-color: transparent;
+		&:hover, &.active {
+			color: color(white);
+			background-color: $colorPrimaryDark;
+		}
+	}
+	&.btn-flat {
+		color: $colorPrimaryDark;
+	}
+}
+.btn-success {
+	&.btn-tr {
+		color: $colorSuccess;
+		border-color: $colorSuccess;
+		background-color: transparent;
+		&:hover, &.active {
+			color: color(white);
+			background-color: $colorSuccess;
+		}
+	}
+	&.btn-flat {
+		color: $colorSuccess;
+	}
+}
+.btn-warning {
+	&.btn-tr {
+		color: $colorWarning;
+		border-color: $colorWarning;
+		background-color: transparent;
+		&:hover, &.active {
+			color: color(white);
+			background-color: $colorWarning;
+		}
+	}
+	&.btn-flat {
+		color: $colorWarning;
+	}
+}
+.btn-danger {
+	&.btn-tr {
+		color: $colorDanger;
+		border-color: $colorDanger;
+		background-color: transparent;
+		&:hover, &.active {
+			color: color(white);
+			background-color: $colorDanger;
+		}
+	}
+	&.btn-flat {
+		color: $colorDanger;
+	}
+}
+
+.floating-button {
+    position: absolute;
+    z-index: 100;
+    bottom: 0;
+    right: 2%;
+    margin-right: $gap;
+    transform: translate(0,50%);
+}
+
+.btn-circle {
+	display: inline-block;
+	padding: 0;
+	width: $controlMD;
+	height: $controlMD;
+	line-height: $controlMD;
+	text-align: center;
+	border-radius: 50%;
+	font-size: $textMD;
+	i { margin: 0; }
+
+	&.btn-sm {
+		width: $controlSM;
+		height: $controlSM;
+		line-height: $controlSM;
+		font-size: $textSM;
+	}
+	&.btn-lg {
+		width: $controlLG;
+		height: $controlLG;
+		line-height: $controlLG;
+		font-size: $textLG;
+	}
+	&.btn-xl {
+		width: $controlXL;
+		height: $controlXL;
+		line-height: $controlXL;
+		font-size: $textXL;
+	}
+
+	&.full {
+		position: relative;
+		width: 100%;
+		height: 0;
+		padding-bottom: 100%;
+		font-size: $fs1;
+		i {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+}
+
+.social-buttons {
+	list-style: none;
+	margin-left: 0;
+	li {
+		display: inline-block;
+	}
+	a {
+		@extend .btn-circle;
+		display: inline-block;
+		color: #fff !important;
+		text-align: center;
+	}
+	.facebook {
+		background-color: $colorFacebook;
+		&:hover {
+			background-color: lighten($colorFacebook,5%);
+		}
+	}
+	.instagram {
+		background-color: $colorInstagram;
+		&:hover {
+			background-color: lighten($colorInstagram,5%);
+		}
+	}
+	.vkontakte {
+		background-color: $colorVkontakte;
+		&:hover {
+			background-color: lighten($colorVkontakte,5%);
+		}
+	}
+	.linkedin {
+		background-color: $colorLinkedIn;
+		&:hover {
+			background-color: lighten($colorLinkedIn,5%);
+		}
+	}
+	.twitter {
+		background-color: $colorTwitter;
+		&:hover {
+			background-color: lighten($colorTwitter,5%);
+		}
+	}
+	.foursquare {
+		background-color: $colorFoursquare;
+		&:hover {
+			background-color: lighten($colorFoursquare,5%);
+		}
+	}
+	.pinterest {
+		background-color: $colorPinterest;
+		&:hover {
+			background-color: lighten($colorPinterest,5%);
+		}
+	}
+	.youtube {
+		background-color: $colorYoutube;
+		&:hover {
+			background-color: lighten($colorYoutube,5%);
+		}
+	}
+	.google {
+		background-color: $colorGoogle;
+		&:hover {
+			background-color: lighten($colorGoogle,5%);
+		}
+	}
+}

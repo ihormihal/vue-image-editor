@@ -1,0 +1,45 @@
+.section {
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.side-by-side {
+	.cell {
+		@extend .flex-middle;
+		height: 400px;
+		&.background {
+			background-size: auto 400px;
+			background-position: center right;
+		}
+		img {
+			min-height: 100%;
+			max-width: inherit;
+		}
+	}
+	.row:nth-child(even) {
+		flex-direction: row-reverse;
+		.cell.background {
+			background-position: center left;
+		}
+	}
+}
+
+.parallax {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	overflow: hidden;
+	background-color: transparent !important;
+}
+.parallax-image {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	overflow: hidden;
+	z-index: -1;
+	img {
+		width: 100%;
+	}
+}

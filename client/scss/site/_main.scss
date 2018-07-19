@@ -1,0 +1,49 @@
+html {
+	font-size: 16px; //rem size
+}
+
+body {
+	min-height: 100vh;
+	flex-direction: column;
+	background-color: #f4f4f4;
+	display: flex;
+	main {
+		flex: 1 0 auto;
+	}
+}
+
+.hidden {
+	display: none !important;
+}
+
+a {
+	color: $colorPrimary;
+	text-decoration: none;
+}
+p, ul {
+	color: $colorPrimaryDark;
+}
+.text ul {
+	margin-left: 20px;
+	text-align: left;
+}
+
+.text-subline {
+	position: relative;
+	height: 3px;
+	width: 24px;
+	margin: $gap 0;
+	background: $colorPrimary;
+	border-radius: 3px;
+	&.center {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.form-group {
+	label {
+		font-weight: 300;
+		color: $colorPrimaryDark;
+	}
+}

@@ -1,0 +1,55 @@
+footer {
+	.links {
+		//margin-top: $gap;
+		a {
+			margin-right: $gap;
+			color: color(light-grey);
+		}
+	}
+
+	.jaya-logo {
+		display: block;
+		text-align: right;
+		img {
+			width: 80px;
+			height: auto;
+		}
+	}
+	
+}
+
+.text-subline {
+	position: relative;
+	height: 1px;
+	background: color(light);
+	margin-top: $gap/2;
+	margin-bottom: $gap;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 1px;
+		width: 40px;
+		background: $colorPrimary;
+	}
+}
+
+@media screen and (max-width: $md - 1px) {
+	footer {
+		.copyright {
+			text-align: center;
+		}
+		.links {
+			text-align: center;
+			a {
+				display: block;
+				margin: $gap/2 0;
+			}
+		}
+		.jaya-logo {
+			padding: $gap 0;
+			text-align: center;
+		}
+	}
+}

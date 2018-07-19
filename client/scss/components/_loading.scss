@@ -1,0 +1,48 @@
+.loader {
+	position: relative;
+	&.load {
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			width: 30%;
+			left: 0;
+			top: 0;
+			height: 3px;
+			background-color: $colorPrimary;
+			animation: ticker 1s linear infinite;
+		}
+	}
+}
+
+.progress {
+	display: block;
+	position: relative;
+	height: 3px;
+	.progress-bar {
+		display: block;
+		position: absolute;
+		width: 0%;
+		left: 0;
+		top: 0;
+		height: 3px;
+		background-color: $colorPrimary;
+	}
+}
+
+.windows-loader {
+	.spinner {
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -30px;
+		margin-left: -30px;
+	  width: 60px;
+	  height: 60px;
+	  animation: windowsRotate 1.4s infinite ease-in-out, windowsBackground 1.4s infinite ease-in-out alternate;
+	}
+	&.load .spinner {
+		display: block;
+	}
+}

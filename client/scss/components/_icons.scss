@@ -1,0 +1,32 @@
+//CSS icons
+
+i.x {
+	position: relative;
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	&:before, &:after {
+		width: 1em;
+
+		content: "";
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		margin-top: -2px;
+		background-color: color(grey);
+		height: 2px;
+		transition: transform 0.3s ease;
+	}
+	&:after {
+		transform: rotate(90deg);
+	}
+	&.remove {
+		&:before {
+			transform: rotate(45deg);
+		}
+		&:after {
+			transform: rotate(-45deg);
+		}
+	}
+}

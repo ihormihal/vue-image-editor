@@ -1,0 +1,76 @@
+/* CHECKBOX */
+.checkbox {
+	vertical-align: middle;
+	input { display:none; }
+	label {
+		cursor: pointer;
+		padding: 8px 0;
+		input {display: none;}
+		@include no-select();
+		label {
+			padding: 0;
+		}
+		.check {text-align: left;}
+		.check, input[disabled] + .check {
+			content: "";
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			margin-right: $gap;
+			vertical-align: middle;
+			background-color: transparent;
+			border: 2px solid $colorPrimary;
+			position: relative;
+			border-radius: 2px;
+			transition:(background 0.3s ease);
+		}
+		.check:after, .check:before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			content: "";
+			display: block;
+		}
+		.check:before {
+			top: 1px;
+			left: 5px;
+		}
+		.check:after {
+			border-radius: 20px;
+			transition:(left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease);
+		}
+		input {
+			& +.check:active:after, &[disabled] + .check:active:after {
+				background-color: rgba(0, 0, 0, 0.1);
+				box-shadow: 0 0 0 15px rgba(0, 0, 0, 0.1);
+			}
+			&[disabled] + .check { 
+				cursor: default;
+				cursor: not-allowed;
+				border-color: color(grey);
+			}
+		}
+		input:checked {
+			+.check {
+				background-color: $colorPrimary; // Switch bg on
+			}
+			+ .check:before {
+				width: 5px;
+				height: 10px;
+				border: solid #fff;
+				border-width: 0 2px 2px 0;
+				transform: rotate(45deg);
+			}
+			+ .check:active:after {
+				background-color: rgba($colorPrimary, 0.1);
+				box-shadow: 0 0 0 15px rgba($colorPrimary, 0.1);
+			}
+			&[disabled] + .check { 
+				border-color: color(grey);
+				background-color: color(grey);
+			}
+		}
+	}
+}

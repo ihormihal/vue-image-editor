@@ -1,0 +1,51 @@
+//SHADOW CLASSES
+.shadow-1-hover, .shadow-2-hover, .shadow-3-hover, .shadow-4-hover, .shadow-5-hover {
+	transition: box-shadow 0.3s ease;
+}
+.shadow-1, .shadow-1-hover:hover {
+	box-shadow: 0px 0px 3px rgba(0,0,0,0.1);
+}
+.shadow-2, .shadow-2-hover:hover {
+	//@include box-shadow(0 1px 3px 1px rgba(0, 0, 0, 0.25));
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+.shadow-3, .shadow-3-hover:hover {
+	//@include box-shadow(0 3px 7px 1px rgba(0, 0, 0, 0.3));
+	box-shadow: 0 3px 8px 0 rgba(0,0,0,.2), 0 2px 10px 0 rgba(0,0,0,.19);
+}
+.shadow-4, .shadow-4-hover:hover {
+	//@include box-shadow(1px 2px 8px rgba(0,0,0,0.4));
+	box-shadow: 0 4px 10px 0 rgba(0,0,0,.2),0 3px 12px 0 rgba(0,0,0,.19);
+}
+.shadow-5, .shadow-5-hover:hover {
+	box-shadow: 3px 5px 15px rgba(0,0,0,0.5);
+}
+
+.shadow-inset {
+	position: relative;
+	overflow: hidden;
+	&:before, &:after {
+		content: '';
+		display: block;
+		position: absolute;
+		height: 4px;
+		width: 100%;
+		left: 0;
+		right: 0;
+		z-index: 100;
+	}
+	&:before {
+		top: 0;
+		@include gradient-tb(rgba(0,0,0,0.25), transparent);
+	}
+	&:after {
+		bottom: 0;
+		@include gradient-tb(transparent, rgba(0,0,0,0.25));
+	}
+	&-top {
+		&:after {display: none;}
+	}
+	&-bottom {
+		&:before {display: none;}
+	}
+}

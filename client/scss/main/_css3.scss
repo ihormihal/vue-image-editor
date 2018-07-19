@@ -1,0 +1,92 @@
+@mixin no-select {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@mixin gradient-tb($top, $bottom){
+	background: $top;
+	background: linear-gradient(to bottom,  $top 0%,$bottom 100%);
+}
+
+@mixin gradient-lr ($left, $right){
+  background: $left;
+  background: linear-gradient(to right,  $left 0%, $right 100%);
+}
+
+@mixin linear-gradient-double($to, $from){
+  background-image: linear-gradient($to, $to), linear-gradient($from, $from);
+}
+
+@mixin no-transition($property) {
+  -webkit-transition-#{$property}: none;
+  -moz-transition-#{$property}: none;
+  -o-transition-#{$property}: none;
+  transition-#{$property}: none;
+}
+
+@mixin background-size($args...){
+  background-size: $args;
+  -webkit-background-size: $args;
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}  
+}
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin triangleTop($size, $color) {
+  display: block;
+  content: '';
+  position: absolute;
+  top: -#{$size*2};
+  border: #{$size} solid transparent;
+  border-bottom-color: #{$color};
+}
+@mixin triangleRight($size, $color) {
+  display: block;
+  content: '';
+  position: absolute;
+  right: -#{$size*2};
+  border: #{$size} solid transparent;
+  border-left-color: #{$color};
+}
+@mixin triangleBottom($size, $color) {
+  display: block;
+  content: '';
+  position: absolute;
+  bottom: -#{$size*2};
+  border: #{$size} solid transparent;
+  border-top-color: #{$color};
+}
+@mixin triangleLeft($size, $color) {
+  display: block;
+  content: '';
+  position: absolute;
+  left: -#{$size*2};
+  border: #{$size} solid transparent;
+  border-right-color: #{$color};
+}

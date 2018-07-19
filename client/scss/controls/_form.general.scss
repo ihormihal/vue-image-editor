@@ -1,0 +1,81 @@
+$inlineInputs: 'textarea, select, input[type=text], input[type=search], input[type=email], input[type=phone], input[type=password], input[type=date], input[type=number]';
+
+.form-group {
+	margin-bottom: 16px;
+	.help-block {
+		display: block;
+		font-size: $fs6;
+		&.help-block-error {
+			color: color(red);
+			padding: $gap/2 0;
+		}
+	}
+	sup {
+		//"required" text
+		color: color(red);
+	}
+	&.has-error {
+		#{$inlineInputs} {
+			border-color: color(red);
+		}
+		.help-block {
+			padding: 8px 0;
+			color: color(red);
+		}
+		.mtr {
+			border-color: transparent !important;
+			@include linear-gradient-double(color(red), color(red));
+		}
+	}
+	&.form-group-inline {
+		> * {
+			margin-right: $gap;
+			vertical-align: bottom;
+			&:last-child { margin-right: inherit; }
+		}
+	}
+	&.floating-label {
+		label {
+			position: relative;
+			z-index: -1;
+			top: 32px;
+			font-weight: 400;
+			color: $placeholderColor;
+			transition: top 0.3s ease;
+		}
+		&.focus {
+			label {
+				color: inherit;
+				font-weight: 600;
+				top: 0;
+			}
+		}
+	}
+	&.no-label {
+		padding-top: 36px;
+	}
+}
+
+label {
+	font-size: 14px;
+	//padding: ($controlMD - 14px)/2 0;
+	padding: $gap/2 0;
+	margin-right: $gap;
+	display: inline-block;
+	font-weight: 500;
+}
+
+//autofill style
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+	padding-left: 8px;
+	padding-right: 8px;
+}

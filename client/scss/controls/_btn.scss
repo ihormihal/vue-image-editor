@@ -1,0 +1,139 @@
+.btn-group {
+	> * {
+		margin-right: $gap/2;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	//fix
+	// a.btn {
+	// 	position: relative;
+	// 	top: 3px;
+	// }
+}
+.btn {
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	border: none;
+	text-decoration: none;
+	text-align: center;
+	line-height: 1;
+	overflow: hidden;
+	vertical-align: bottom;
+	transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+	@include no-select();
+	border-radius: $btnBorderRadius;
+	&[disabled] {
+		opacity: 0.5;
+		cursor: not-allowed;
+		.ink {
+			display: none;
+		}
+	}
+	i {
+		margin-right: 8px;
+		top: 0;
+		&.single {
+			margin: 0;
+		}
+	}
+}
+
+// button.btn, input[type="button"].btn, input[type="submit"].btn {
+// 	vertical-align: bottom;
+// 	position: relative;
+// 	top: -2px;
+// }
+
+//COLORS
+.btn {
+	background-color: color(lighten);
+	color: color(darken);
+	&:hover, &.active {
+		background-color: color(light);
+	}
+}
+
+.btn-white {
+	background-color: color(white);
+	color: color(black);
+	&:hover, &.active {
+		background-color: color(lighten);
+	}
+}
+.btn-black {
+	background-color: color(black);
+	color: color(white);
+	&:hover, &.active {
+		background-color: color(darken);
+	}
+}
+.btn-primary {
+	background-color: $colorPrimaryDark;
+	color: color(white);
+	&:hover, &.active {
+		background-color: darken($colorPrimaryDark,5%);
+	}
+}
+.btn-success {
+	background-color: $colorSuccess;
+	color: color(white);
+	&:hover, &.active {
+		background-color: darken($colorSuccess,5%);
+	}
+}
+.btn-warning {
+	background-color: $colorWarning;
+	color: color(white);
+	&:hover, &.active {
+		background-color: darken($colorWarning,5%);
+	}
+}
+.btn-danger {
+	background-color: $colorDanger;
+	color: color(white);
+	&:hover, &.active {
+		background-color: darken($colorDanger,5%);
+	}
+}
+
+//SIZES
+.btn {
+	font-size: $textMD;
+	height: $controlMD;
+	line-height: $controlMD;
+	padding: 0 24px;
+}
+.btn-xs {
+	font-size: $textXS;
+	height: $controlXS;
+	line-height: $controlXS;
+	padding: 0 16px;
+}
+.btn-sm {
+	font-size: $textSM;
+	height: $controlSM;
+	line-height: $controlSM;
+	padding: 0 16px;
+}
+.btn-lg {
+	font-size: $textLG;
+	height: $controlLG;
+	line-height: $controlLG;
+	padding: 0 32px;
+	//border-radius: $controlLG/$controlMD *
+}
+.btn-xl {
+	font-size: $textXL;
+	height: $controlXL;
+	line-height: $controlXL;
+	padding: 0 48px;
+}
+
+.btn-wide {
+	padding: 0 48px;
+}
+.btn-narrow {
+	padding: 0 12px;
+}

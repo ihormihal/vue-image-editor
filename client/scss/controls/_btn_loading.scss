@@ -1,0 +1,47 @@
+// Button style
+//**********************//
+.btn-loading:not(.disabled){
+  position: relative;
+  &:before{
+    content:'';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -9px;
+    width: 12px;
+    height: 12px;
+    border: 3px solid #fff;
+    border-left-color: transparent;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.5s linear;
+    animation: rotate 1s infinite linear;
+  }
+
+  &:after{
+    content:'';
+    display:inline-block;
+    height: 1px;
+    width: 0;
+    transition-delay: 0.5s;
+    transition-duration: 0.75s;
+    transition-property: width;
+  }
+
+  &.load {
+    pointer-events: none;
+    cursor: not-allowed;
+    &:not(.expand){
+     text-align: left;
+    }
+    &:before{
+      transition-delay: 0.5s;
+      transition-duration: 1s;
+      opacity: 1;
+    }
+    &:after{
+      transition-delay: 0s;
+      width: 24px;
+    }
+  }
+}

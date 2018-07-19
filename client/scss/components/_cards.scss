@@ -1,0 +1,94 @@
+$actionHeight: 60px;
+
+.card-box, .card-row, .card-image {
+	@extend .shadow-2-hover;
+	display: block;
+	overflow: hidden;
+	background-color: #fff;
+	padding: $gap;
+	border-radius: $boxRadius;
+	.title {
+		padding: 0 0 $gap 0;
+	}
+	.image {
+		img {width: 100%;}
+	}
+	.content .box {
+		padding: 1.5*$gap;
+	}
+	.actions {
+		padding: $gap 1.5*$gap;
+		//padding: 0;
+		//opacity: 0;
+		border-top: 1px solid color(lighten);
+		.btn {
+			margin: 0;
+		}
+	}
+	
+	&.hover-show-actions {
+		transition: all 0.3s ease;
+		.content {
+			position: relative;
+		}
+		.actions {
+			position: absolute;
+			bottom: -$actionHeight;
+			width: 100%;
+			background-color: #fff;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+		&:hover {
+			padding-bottom: $actionHeight;
+			margin-bottom: -$actionHeight;
+			.actions {
+				opacity: 1;
+			}
+		}
+	}
+
+}
+.card-box {
+	@extend .box;
+	padding: 0;
+	a {text-decoration: none;}
+}
+.card-row {
+	@extend .box;
+	padding: 0;
+	.header, .content {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.header {
+		justify-content: center;
+		background-color: color(lighten);
+	}
+}
+.card-image {
+	padding: 0;
+	position: relative;
+	.content {
+		position: absolute;
+		left: 0; right: 0; bottom: 0;
+	}
+	&.slide {
+		.content {
+			height: 100%;
+			top: 100%;
+			margin-top: -56px;
+			background-color: rgba(0,0,0,0);
+			transition: top 0.3s ease, margin-top 0.3s ease, background-color 0.3s ease;
+		}
+		&:hover {
+			.content {
+				background-color: color(dark);
+				top: 0;
+				margin-top: 0;
+			}
+		}
+	}
+
+}

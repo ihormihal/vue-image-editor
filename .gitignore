@@ -1,0 +1,7 @@
+.DS_Store
+node_modules/
+npm-debug.log*
+
+# Data folders
+public/data
+public/js/hot

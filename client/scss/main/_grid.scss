@@ -1,0 +1,241 @@
+@mixin setGeneral($prefix){
+	//скрываем для всех экранов
+	.show-#{$prefix}-over, .show-#{$prefix}-under {
+		display: none;
+		//height: 0; width: 0; visibility: hidden;
+	}
+	.hide-#{$prefix}-over, .hide-#{$prefix}-under {
+		display: block;
+		//height: auto; width: auto; visibility: visible;
+	}
+}
+//Для экранов больше префикса, больше - в приоритете
+@mixin setForBigger($prefix){
+	@for $i from 1 through $columns {
+		//ширина колонки
+		.col-#{$prefix}-#{$i} {
+			width : ($i / $columns)*100%;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+		//смещение колонок
+		.col-#{$prefix}-offset-#{$i} {
+			margin-left: ($i / $columns)*100%;
+		}
+	}
+
+	@for $i from 1 through 10 {
+		//ширина колонки
+		.col-#{$prefix}-ten-#{$i} {
+			width : ($i / 10)*100%;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+		//смещение колонок
+		.col-#{$prefix}-ten-offset-#{$i} {
+			margin-left: ($i / 10)*100%;
+		}
+	}
+
+	//показываем для экранов меньше $prefix
+	.show-#{$prefix}-over {
+		display: block;
+	}
+	//скрываем для экранов меньше $prefix
+	.hide-#{$prefix}-over {
+		display: none !important;
+	}
+	//обтекание для экранов больше $prefix
+	.left-#{$prefix} {
+		float: left;
+	}
+	.right-#{$prefix} {
+		float: right;
+	}
+	//текст справа для экранов больше $prefix
+	.text-#{$prefix}-right {
+		text-align: right;
+	}
+}
+//для экранов меньше префикса, меньше - в приоритете
+@mixin setForSmaller($prefix){
+	//скрываем для экранов больше $prefix
+	.hide-#{$prefix}-under {
+		display: none !important;
+	}
+	//показываем для экранов больше $prefix
+	.show-#{$prefix}-under {
+		display: block;
+	}
+
+	//центрируем блок для экранов меньше $prefix
+	.pull-#{$prefix}-center {
+		display: table;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	//центрируем текст для экранов меньше $prefix
+	.text-#{$prefix}-center {
+		text-align: center;
+	}
+}
+* {box-sizing: border-box;}
+.container {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: $max;
+	padding-left: $gap;
+	padding-right: $gap;
+	margin: 0 auto;
+	&.wide {
+		max-width: $max-wide;
+	}
+	&.fit {
+		max-width: 100%;
+		padding-left: $gap*2;
+		padding-right: $gap*2;
+		.fullwidth {
+			margin-left: -$gap;
+			margin-right: -$gap;
+		}
+	}
+	&.full {
+		width: 100%;
+		max-width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+*[class ^= "col-xs-"],
+*[class ^= "col-sm-"],
+*[class ^= "col-md-"],
+*[class ^= "col-lg-"],
+*[class ^= "col-xl-"] {
+	min-height: 1px;
+	padding: 0 $gap;
+	box-sizing: border-box;
+	width: 100%;
+	float: left;
+}
+.row {
+	clear: both;
+	margin-left: -$gap;
+	margin-right: -$gap;
+	display: flex;
+	flex-wrap: wrap;
+
+	&.reverse {
+		flex-direction: row-reverse;
+	}
+
+	&:after {content: ''; display: block; clear: both;}
+	//плитка - если колонки не помещаются по ширине, нужен вертикальный отступ
+	&.wide {
+		margin-left: -$gap*2;
+		margin-right: -$gap*2;
+		> *[class ^= "col-"] {
+			padding-left: $gap*2;
+			padding-right: $gap*2;
+		}
+	}
+	&.thin {
+		margin-left: -$gap/2;
+		margin-right: -$gap/2;
+		> *[class ^= "col-"] {
+			padding-left: $gap/2;
+			padding-right: $gap/2;
+		}
+	}
+	&.slim {
+		margin-left: -$gap/4;
+		margin-right: -$gap/4;
+		> *[class ^= "col-"] {
+			padding-left: $gap/4;
+			padding-right: $gap/4;
+		}
+	}
+	&.condensed {
+		margin-left: 0;
+		margin-right: 0;
+		> *[class ^= "col-"] {
+			padding: 0;
+		}
+	}
+	&.tile {
+		//margin-bottom: -$gap*2;
+		> *[class ^= "col-"] { padding-bottom: $gap*2; }
+		&.thin {
+			//margin-bottom: -$gap;
+			> *[class ^= "col-"] { padding-bottom: $gap; }
+		}
+		&.rslim {
+			//margin-bottom: -$gap/2;
+			> *[class ^= "col-"] { padding-bottom: $gap/2; }
+		}
+	}
+
+	&.full {
+		margin-left: 0;
+		margin-right: 0;
+		> *[class ^= "col-"] {
+			&:first-child {
+				padding-left: 0;
+			}
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+	}
+}
+
+
+
+@include setGeneral(xs);
+@include setGeneral(sm);
+@include setGeneral(md);
+@include setGeneral(lg);
+@include setGeneral(xl);
+@include setGeneral(xxl);
+
+/**** SET FOR BIGGER SCREEN ****/
+@include setForBigger(xs);
+@media screen and (min-width: $xs) {
+	@include setForBigger(sm);
+}
+@media screen and (min-width: $sm) {
+	@include setForBigger(md);
+}
+@media screen and (min-width: $md) {
+	@include setForBigger(lg);
+}
+@media screen and (min-width: $lg) {
+	@include setForBigger(xl);
+}
+@media screen and (min-width: $xl) {
+	@include setForBigger(xxl);
+}
+/**** SET FOR SMALLER SCREEN ****/
+@media screen and (min-width: $xxl - 1px) {
+	@include setForSmaller(xxl);
+}
+@media screen and (max-width: $xl - 1px) {
+	@include setForSmaller(xl);
+}
+@media screen and (max-width: $lg - 1px) {
+	@include setForSmaller(lg);
+}
+@media screen and (max-width: $md - 1px) {
+	@include setForSmaller(md);
+}
+@media screen and (max-width: $sm - 1px) {
+	@include setForSmaller(sm);
+	.container.fit {
+		padding-left: $gap;
+		padding-right: $gap;
+		.fullwidth {
+			margin-left: -$gap;
+			margin-right: -$gap;
+		}
+	}
+}
+@include setForSmaller(xs);

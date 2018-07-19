@@ -1,0 +1,65 @@
+body {
+	font-family: $roboto;
+	font-size: $fs5;
+	line-height: 1.5;
+	font-weight: 400;
+}
+p, p > a, .text > li {
+	margin-bottom: $gap;
+	line-height: 1.5;
+	font-weight: 300;
+}
+
+h1, h2, h3 {
+	font-family: $comfortaa;
+	line-height: 1;
+}
+
+h2,h3,h4,
+.h2,.h3,.h4 {
+	font-weight: 300;
+}
+
+.huge  {font-size: $fs0;}
+h1,.h1 {font-size: $fs1; font-weight: 600;}
+h2,.h2 {font-size: $fs2;}
+h3,.h3 {font-size: $fs3;}
+h4,.h4 {font-size: $fs4;}
+h5,.h5 {font-size: $fs5;}
+h6,.h6 {font-size: $fs6;}
+
+.lh2 { line-height: $fs1; }
+.lh3 { line-height: $fs2; }
+
+// .huge,.lhuge {line-height: $fs0 + 0.5rem;}
+// h1,.h1,.lh1 {line-height: $fs1 + 0.5rem;}
+// h2,.h2,.lh2	{line-height: $fs2 + 0.375rem;}
+// h3,.h3,.lh3	{line-height: $fs3 + 0.25rem;}
+// h4,.h4,.lh4	{line-height: $fs4 + 0.25rem;}
+// h5,.h5,.lh5	{line-height: $fs5 + 0.25rem;}
+// h6,.h6,.lh6	{line-height: $fs6 + 0.25rem;}
+
+.slim {font-weight: 300; font-weight: 100;}
+.normal {font-weight: 400;}
+.bold {font-weight: 500;}
+.italic {font-style: italic;}
+.underline {text-decoration: underline;}
+.strike {text-decoration: line-through; }
+.up {text-transform: uppercase;}
+.valign {vertical-align: middle;}
+.nowrap {white-space: nowrap;}
+small, .small {
+	@extend .h6;
+}
+sup, sub {
+	display: inline-block;
+	font-size: 10px;
+}
+sup { vertical-align: top; }
+sub { vertical-align: bottom; }
+
+@media screen and (max-width: $md - 1px) {
+	.huge  {font-size: $fs1;}
+	h1,.h1 {font-size: $fs2;}
+	h2,.h2 {font-size: $fs3;}
+}

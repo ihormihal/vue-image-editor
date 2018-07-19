@@ -1,0 +1,37 @@
+html.admin, html.admin body {
+	height: 100%;
+	overflow: hidden;
+}
+.collumns {
+	height: calc(100% - 50px); //50px - height of header
+	.col-aside {
+		height: 100%;
+		width: 20%;
+		float: left;
+		overflow-y: scroll;
+	}
+	.col-main {
+		height: 100%;
+		width: 80%;
+		float: left;
+		overflow-y: scroll;
+	}
+}
+
+.tab-control li a {
+	text-transform: uppercase;
+}
+
+@media screen and (max-width: $md - 1px) {
+	html.admin, html.admin body {
+		overflow: auto;
+	}
+	.collumns {
+		height: auto;
+		.col-aside, .col-main {
+			float: none;
+			width: 100%;
+			overflow: hidden;
+		}
+	}
+}

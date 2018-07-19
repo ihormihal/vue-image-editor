@@ -1,0 +1,19 @@
+header .header {
+	@include gradient-tb($colorPrimaryLight, $colorPrimary);
+	.page-header {
+		@extend .shadow-1;
+		background-color: #fff;
+		position: relative;
+		top: $gap*2;
+		padding: $gap;
+		h1 {
+			font-size: $fs4;
+			font-weight: 400;
+		}
+		p {
+			margin: 0;
+			color: color(grey);
+		}
+	}
+	margin-bottom: $gap*2;
+}

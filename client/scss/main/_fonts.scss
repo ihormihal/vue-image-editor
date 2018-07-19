@@ -1,0 +1,89 @@
+//@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,300italic,400italic&subset=latin,cyrillic);
+//@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=latin,cyrillic);
+
+
+/* cyrillic */
+@font-face {
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Comfortaa Light'), local('Comfortaa-Light'), url('../fonts/Comfortaa-Light-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin */
+@font-face {
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Comfortaa Light'), local('Comfortaa-Light'), url('../fonts/Comfortaa-Light-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Comfortaa Regular'), local('Comfortaa-Regular'), url('../fonts/Comfortaa-Regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin */
+@font-face {
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Comfortaa Regular'), local('Comfortaa-Regular'), url('../fonts/Comfortaa-Regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+}
+
+/*ICONS*/
+@font-face {
+  font-family: 'pm-icons';
+  src:
+    url('../fonts/pm-icons.ttf') format('truetype'),
+    url('../fonts/pm-icons.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.pmi, .form-group i, {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'pm-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.pmi-menu:before {
+  content: "\e906";
+}
+
+.pmi-facebook:before {
+  content: "\e904";
+}
+.pmi-instagram:before {
+  content: "\e905";
+}
+.pmi-arrow-down:before {
+  content: "\e903";
+}
+.pmi-check:before {
+  content: "\e902";
+}
+.pmi-close:before {
+  content: "\e900";
+}
+.pmi-edit:before {
+  content: "\e901";
+}
+
+/*Fonts*/
+$roboto: 'Roboto', sans-serif;
+$sans: 'Open Sans', sans-serif;
+$comfortaa: 'Comfortaa', 'Open Sans', sans-serif;

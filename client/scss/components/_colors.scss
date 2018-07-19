@@ -1,0 +1,39 @@
+//COLOR CLASSES
+@each $colorName, $color in $colors {
+	//color
+	.#{$colorName} {
+		color: #{$color};
+	}
+	//hover color
+	.hover-#{$colorName}:hover {
+		color: #{$color};
+	}
+	//background color
+	.#{$colorName}-bg {
+		background-color: #{$color};
+		&.hover-bg-darken:hover {
+			background-color: darken($color, 10%);
+		}
+		&.hover-bg-lighten:hover {
+			background-color: lighten($color, 10%);
+		}
+		@if (lightness($color) > 80) {
+			color: color(dark);
+		} @else {
+			color: color(white);
+		}
+	}
+	//hover background color
+	.hover-#{$colorName}-bg:hover {
+		background-color: #{$color};
+		@if (lightness($color) > 80) {
+			color: color(dark);
+		} @else {
+			color: color(white);
+		}
+	}
+	//border color
+	.#{$colorName}-border {
+		border-color: #{$color};
+	}
+}

@@ -1,0 +1,115 @@
+$pt: 0.0625rem; // default rem = 16px
+
+/*grid*/
+$gap: 16px;
+$columns: 12;
+$max: 1200px;
+$max-wide: 96%;
+
+/*breackpoints*/
+$xs  : 361px;
+$port: 412px;
+$land: 600px;
+$sm  : 769px;
+$md  : 1008px;
+$lg  : 1265px;
+$xl  : 1904px;
+$xxl : 2560px;
+
+$fontPrimary: 'Roboto Slab', sans-serif;
+$fs0 : 72px;
+$fs1 : 56px;
+$fs2 : 36px;
+$fs3 : 24px;
+$fs4 : 18px;
+$fs5 : 16px;
+$fs6 : 13px;
+$fs7 : 10px;
+
+/* sizes */
+$navbarHeight: 60px;
+$navBtnSize: 20px;
+
+$boxRadius: 4px; //cards
+$btnBorderRadius: 30px;
+$inputBorderRadius: 4px;
+$inputShadow: false;
+
+/* form control && button sizes */
+$controlXS: 24px;
+$controlSM: 30px;
+$controlMD: 36px;
+$controlLG: 48px;
+$controlXL: 64px;
+
+/* form control && button FONT sizes */
+$textXS: 10px;
+$textSM: 12px;
+$textMD: 14px;
+$textLG: 18px;
+$textXL: 24px;
+
+$colorPrimary: #fd2932;
+$colorPrimaryLight: #a7b0c6;
+$colorPrimaryDark: #443d66;
+
+/*www.google.com/design/spec/style/color.html*/
+$colors: (
+	//material colors
+	'blue-grey': #607d8b,
+	'green': #4caf50,
+	'light-green': #8bc34a,
+	'lime': #cddc39,
+	'amber' : #ffc107,
+	'yellow' : #ffeb3b,
+	'orange' : #ff9800,
+	'deep-orange': #ff5722,
+	'brown' : #795548,
+	'red': #f44336,
+	'pink': #e91e63,
+	'purple': #9c27b0,
+	'deep-purple': #673ab7,
+	'indigo': #3f51b5,
+	'blue': #2196f3,
+	'light-blue': #03a9f4,
+	'cyan': #00bcd4,
+	'teal': #009688,
+
+	//general colors
+	'black' : #000000,
+	'darken' : #222222,
+	'dark' : #3d3d3d,
+	'dark-grey' : #555555,
+	'grey' : #7a7a7a,
+	'light-grey' : #9e9e9e,
+	'light' : #d7d7d7,
+	'lighten' : #f0f0f0,
+	'bright' : #fafafa,
+	'white' : #ffffff
+
+	//custom
+	,'primary' : $colorPrimary
+	,'primary-light' : $colorPrimaryLight
+	,'primary-dark' : $colorPrimaryDark
+);
+
+$colorFacebook: #3b5998;
+$colorInstagram: #e1306c;
+$colorVkontakte: #45668e;
+$colorLinkedIn: #0077b5;
+$colorTwitter: #1da1f2;
+$colorFoursquare: #f94877;
+$colorPinterest: #bd081c;
+$colorYoutube: #cd201f;
+$colorGoogle: #dd4b39;
+
+@function color($color) {
+	@return map-get($colors, '#{$color}');
+}
+
+
+$colorSuccess: color(green);
+$colorWarning: color(orange);
+$colorDanger: color(red);
+
+$placeholderColor: color(light-grey);
