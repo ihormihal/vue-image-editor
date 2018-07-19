@@ -167,7 +167,7 @@ export default {
     }
   },
   mounted(){
-    this.image = 'assets/images/banner.jpg';
+    this.image = 'assets/images/demo.jpg';
   },
   methods: {
 
@@ -248,18 +248,21 @@ export default {
     _translate(checkAlign = true){
       const tr = new Transform(this.transform.center, this.matrix);
 
-      //находим кординаты, которые, после трансформации, должны совпасть с центром области кропа
+      //находим координаты, которые, после трансформации, должны совпасть с центром области кропа
       const newCenter = tr.getOrigins(this.areaRect.center);
       this.transform.center = newCenter;
+      //пересчитываем смещение для компенсации сдвига центра
       this.transform.x = this.areaRect.center.x - newCenter.x;
       this.transform.y = this.areaRect.center.y - newCenter.y;
 
+      //обновляем координаты центра
       tr.init(this.transform.center, this.matrix);
 
       //рассчитываем кординаты верхнего левого и нижнего правого углов изображения, которые получились после применения трансформации
       let x0y0 = tr.translate({x: 0, y: 0});
       let x1y1 = tr.translate({x: this.imageRect.size.width, y: this.imageRect.size.height});
 
+      //находим расположение (относительно области кропа) крайних точек изображения и его размер
       let result = {
         left: x1y1.x - x0y0.x > 0 ? x0y0.x : x1y1.x,
         top: x1y1.y - x0y0.y > 0 ? x0y0.y : x1y1.y,
@@ -267,13 +270,15 @@ export default {
         height: Math.abs(x1y1.y - x0y0.y)
       };
 
-      //находим смещения относительно области кропа и выравниваем изображение, если имеются "зазоры"
+      //находим смещения относительно области кропа и выравниваем изображение, если появились "зазоры"
       //align functions
       let rightOffset = this.areaRect.size.width - (result.left + result.width);
       let bottomOffset = this.areaRect.size.height - (result.top + result.height);
 
       let alignedCenter;
 
+
+      //вырайниваем по горизонтали
       if(this.areaRect.size.width - result.width > 1){
         //align center X
         alignedCenter = tr.getOrigins({x: result.left + result.width/2, y: this.areaRect.center.y});
@@ -294,6 +299,7 @@ export default {
         tr.init(this.transform.center, this.matrix);
       }
 
+      //вырайниваем по вертикали
       if(this.areaRect.size.height - result.height > 1){
         //align center Y
         alignedCenter = tr.getOrigins({x: this.areaRect.center.x, y: result.top + result.height/2});
@@ -341,7 +347,8 @@ export default {
       this.nextLoading = true;
 
       console.log(data)
-      //API
+      alert(JSON.stringify(data))
+      //some API
 
       this.nextLoading = false;
     }

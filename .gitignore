@@ -3,5 +3,6 @@ node_modules/
 npm-debug.log*
 
 # Data folders
+habr.html
 public/data
 public/js/hot
