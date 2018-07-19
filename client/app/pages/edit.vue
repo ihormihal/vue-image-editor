@@ -10,7 +10,7 @@
       <div class="col-md-6">
         <div class="column">
           <div class="box">
-            <div class="preview box">
+            <div class="preview Frame">
               <img class="background" :src="frame" alt="">
               <Preview :matrix="matrix" v-if="image" ref="preview" :image="image" :transform="transform" @resized="areaResized" @loaded="imageLoaded" @moved="imageMoved" />
             </div>

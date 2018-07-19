@@ -1,7 +1,7 @@
 <!-- Component for editing images -->
 <template>
-  <div>
 
+  <div>
     <div ref="area" class="edit-zone windows-loader" :class="{'load': loading}"
       @mousedown="onMoveStart" @touchstart="onMoveStart"
       @mouseup="onMoveEnd" @touchend="onMoveEnd"
@@ -9,8 +9,8 @@
       <div class="spinner"></div>
       <img v-if="image" ref="image" @load="imageLoaded" :src="image" :style="{ 'transform': transformStyle, 'transform-origin': transformOrigin }">
     </div>
-
   </div>
+
 </template>
 
 <script>
