@@ -3,9 +3,12 @@
 
   <div>
     <div ref="area" class="edit-zone windows-loader" :class="{'load': loading}"
-      @mousedown="onMoveStart" @touchstart="onMoveStart"
-      @mouseup="onMoveEnd" @touchend="onMoveEnd"
-      @mousemove="onMove" @touchmove="onMove">
+      @mousedown="onMoveStart"
+      @touchstart="onMoveStart"
+      @mouseup="onMoveEnd"
+      @touchend="onMoveEnd"
+      @mousemove="onMove"
+      @touchmove="onMove">
       <div class="spinner"></div>
       <img v-if="image" ref="image" @load="imageLoaded" :src="image" :style="{ 'transform': transformStyle, 'transform-origin': transformOrigin }">
     </div>
@@ -92,7 +95,7 @@ export default {
     },
 
     onMoveStart(event) {
-      document.body.style.overflow = 'hidden';
+      if(document.body.offsetWidth <= 480) document.body.style.overflow = 'hidden';
       const screenX = event.type == 'touchstart' ? event.changedTouches[0].screenX : event.screenX;
       const screenY = event.type == 'touchstart' ? event.changedTouches[0].screenY : event.screenY;
       this.m.moving = true;
