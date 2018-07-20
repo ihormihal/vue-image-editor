@@ -95,7 +95,7 @@ export default {
     },
 
     onMoveStart(event) {
-      if(document.body.offsetWidth <= 480) document.body.style.overflow = 'hidden';
+      if(event.type == 'touchstart') document.body.style.overflow = 'hidden';
       const screenX = event.type == 'touchstart' ? event.changedTouches[0].screenX : event.screenX;
       const screenY = event.type == 'touchstart' ? event.changedTouches[0].screenY : event.screenY;
       this.m.moving = true;
